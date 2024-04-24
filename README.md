@@ -16,10 +16,14 @@ Small restaurants need a simple, fast, functional, subscriptionless low cost POS
 ### What are the tough technical challenges involved with solving this problem?
 1. Setting up dev environment
 1. Setting up database
-1. Connecting front end and backend 
+1. Creating 3 column React front end app with auto-populating button grid
+1. Implementing fetch to pre-built database
+1. Setting up express server for fetching
+1. Connecting front end and backend
 
 ### Stretch = Expand functionality:
 1. User login
 1. Interactive UI
+1. Update DB from frontend
 
 
