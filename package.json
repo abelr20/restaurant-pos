@@ -2,7 +2,7 @@
   "name": "pos",
   "version": "1.0.0",
   "description": "Point of Sale App",
-  "main": "server/server.js",
+  "main": "index.html",
   "scripts": {
     "start": "nodemon server/server.js",
     "dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --hot --progress --color\" \"nodemon ./server/server.js\""

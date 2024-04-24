@@ -7,13 +7,7 @@ const App = () => {
     <>
       <div>
         <h1>Menu</h1>
-        {row1}
-      </div>
-      <div>
-        {row2}
-      </div>
-      <div>
-        {row3}
+        {Box}
       </div>
     </>
   );
@@ -53,4 +47,4 @@ const Box = (props) => {
 
 
 const root = createRoot(document.querySelector('#root'));
-root.render(<App />,);
+root.render(<App />);

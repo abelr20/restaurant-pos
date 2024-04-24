@@ -4,7 +4,7 @@
 Restaurant Waiter/Manager
 
 ### What is the problem you’re solving?
-Small restaurants need a simple, fast, functional, subscriptionless low cost POS solution that can compete with Micros e7, Square POS, Toast, EPOS, etc.
+Small restaurants need a simple, fast, functional, low cost, and subscriptionless POS solution that can compete with Micros e7, Square POS, Toast, EPOS, etc.
 
 ### Solution = Create a Point of Sale (POS) System that is: 
 1. Low cost, low maintenance

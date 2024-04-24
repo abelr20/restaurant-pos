@@ -1,55 +1,60 @@
 const express = require('express');
+const path = require('path')
 const app = express();
 const mongoose = require('mongoose');
 
-const itemController = require('./itemController');
+const itemController = require('./ItemController');
 
 const PORT = 3000;
 
-mongoose.connect('mongodb+srv://abelpenguin:Navamintr123@pos.9qng90f.mongodb.net/?retryWrites=true&w=majority&appName=POS', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://abelpenguin:Navamintr123@pos.9qng90f.mongodb.net/?retryWrites=true&w=majority&appName=POS');
 mongoose.connection.once('open', () => {
   console.log('Connected to Database');
 });
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.get('/', (req, res) => {
+  res.status(200).sendFile(path.join(__dirname, '..', 'src', 'index.html'));
+});
 
 const itemRouter = express.Router();
 app.use('/item', itemRouter);
 
 // Create a item in the database
 // http://localhost:3000/item
-itemRouter.post('/', itemController.createitem, (req, res, next) => {
+itemRouter.post('/', itemController.createItem, (req, res, next) => {
   return res.status(200).send(res.locals.doc);
 });
 
 // Get a item from the database
 // http://localhost:3000/item/"name"
-itemRouter.get('/:name', itemController.getitem, (req, res, next) => {
+itemRouter.get('/:name', itemController.getItem, (req, res, next) => {
   return res.status(200).send(res.locals.doc);
 });
 
 // Change a items name
 // http://localhost:3000/item/"name"
-itemRouter.patch('/:name', itemController.updateitem, (req, res, next) => {
-  return res.status(200).json({ message: 'item name updated successfully' });
+itemRouter.patch('/:name', itemController.updateItem, (req, res, next) => {
+  return res.status(200).json({ message: 'Menu item name updated successfully' });
 });
 
 // Delete a item from the database
 // http://localhost:3000/item/"name"
-itemRouter.delete('/:name', itemController.deleteitem, (req, res, next) => {
-  return res.status(200).json({ message: 'item deleted successfully' });
+itemRouter.delete('/:name', itemController.deleteItem, (req, res, next) => {
+  return res.status(200).json({ message: 'Menu item deleted successfully' });
 });
 
 // Unknown route handler
 app.use((req, res) => res.sendStatus(404));
+
 
 // Global error handler
 app.use((err, req, res, next) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
     status: 500,
-    message: { err: 'An error occurred' },
+    message: { error: 'An error occurred' },
   };
   const errorObj = Object.assign({}, defaultErr, err);
   console.log(errorObj.log);
