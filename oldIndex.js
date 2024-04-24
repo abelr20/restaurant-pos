@@ -3,20 +3,18 @@ const path = require('path')
 const app = express();
 const mongoose = require('mongoose');
 
-const itemController = require('./ItemController');
+const itemController = require('../ItemController');
 
 const PORT = 3000;
 
-mongoose.connect('mongodb+srv://abelpenguin:Navamintr123@pos.9qng90f.mongodb.net/?retryWrites=true&w=majority&appName=POS');
+mongoose.connect('mongodb+srv://abelpenguin:Navamintr123@pos.9qng90f.mongodb.net/?retryWrites=true&w=majority&appName=POS', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once('open', () => {
   console.log('Connected to Database');
 });
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.get('/', (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, '..', 'src', 'index.html'));
-});
+app.use(express.static(__dirname));
 
 const itemRouter = express.Router();
 app.use('/item', itemRouter);
@@ -27,8 +25,8 @@ itemRouter.post('/', itemController.createItem, (req, res, next) => {
   return res.status(200).send(res.locals.doc);
 });
 
-// Get a item from the database
-// http://localhost:3000/item/"name"
+// Get items from the database
+// http://localhost:3000/api/items/
 itemRouter.get('/:name', itemController.getItem, (req, res, next) => {
   return res.status(200).send(res.locals.doc);
 });

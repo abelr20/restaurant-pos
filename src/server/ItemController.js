@@ -20,13 +20,11 @@ const itemController = {
 
   async getItem(req, res, next) {
     try {
-      res.locals.doc = await item.findOne({ 
-        name: req.params.name 
-      });
+      res.locals.doc = await item.find();
       if (res.locals.doc === null) return next({
         log: 'Message: req.params.name contained a name not found in DB',
         status: 404,
-        message: { error: 'Item not found. Make sure to capitalize names!'},
+        message: { error: 'Could not find items in DB!'},
       });
       return next();
     } catch (err) {
