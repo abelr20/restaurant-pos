@@ -24,12 +24,16 @@ mongoose.connect('mongodb+srv://abelpenguin:Navamintr123@pos.9qng90f.mongodb.net
 
 
 // Serve static files from the React app build directory
-app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
+app.use(express.static(path.join(__dirname, '..', 'client')));
 
-app.get('/api/items', itemController.getItem, (req, res) => {
+app.post('/api/items', itemController.createItem, (req, res) => {
   return res.status(200).send(res.locals.doc);
 });
-// Handles any requests that don't match the ones above
+
+app.get('/api/items', itemController.getItems, (req, res) => {
+  return res.status(200).send(res.locals.doc);
+});
+
 app.get('*', (req, res) => {
   res.status(404).send('URL is wrong');
 });

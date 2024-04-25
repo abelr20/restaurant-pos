@@ -2,27 +2,12 @@ const item = require('./ItemModel');
 
 const itemController = {
 
-  async createItem(req, res, next) {
+  async getItems(req, res, next) {
     try {
-      res.locals.doc = await item.create({
-        name: req.body.name,
-        price: req.body.price
-      });
-      return next();
-    } catch (err) {
-      return next({
-        log: 'Error in itemController.createItem: ' + err,
-        status: 500,
-        message: { eror: 'Message: ' + err },
-      });
-    }
-  },
-
-  async getItem(req, res, next) {
-    try {
-      res.locals.doc = await item.find();
+      const docs = await item.find();
+      res.locals.doc = docs;
       if (res.locals.doc === null) return next({
-        log: 'Message: req.params.name contained a name not found in DB',
+        log: 'Message: Item names not found in DB',
         status: 404,
         message: { error: 'Could not find items in DB!'},
       });
@@ -32,6 +17,23 @@ const itemController = {
         log: 'Error in itemController.getItem: ' + err,
         status: 500,
         message: { error: 'Message: ' + err},
+      });
+    }
+  },
+
+  async createItem(req, res, next) {
+    try {
+      const docs = await item.create({
+        name: req.body.name,
+        price: req.body.price
+      });
+      res.locals.doc = docs;
+      return next();
+    } catch (err) {
+      return next({
+        log: 'Error in itemController.createItem: ' + err,
+        status: 500,
+        message: { eror: 'Message: ' + err },
       });
     }
   },
