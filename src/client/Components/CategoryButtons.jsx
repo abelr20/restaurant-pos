@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 function CategoryButtons() {
   return (
     <div className="category-buttons">
-      <button className="category-button">FRUITS</button>
+      <button className="category-button">DRINKS</button>
     </div>
   );
 }

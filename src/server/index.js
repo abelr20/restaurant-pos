@@ -34,6 +34,10 @@ app.get('/api/items', itemController.getItems, (req, res) => {
   return res.status(200).send(res.locals.doc);
 });
 
+app.delete('/api/items', itemController.deleteItem, (req, res) => {
+  return res.status(200).send(res.locals.doc);
+});
+
 app.get('*', (req, res) => {
   res.status(404).send('URL is wrong');
 });

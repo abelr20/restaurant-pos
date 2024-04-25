@@ -3,11 +3,11 @@ import React, { useEffect, useState } from 'react';
 import Ticket from './Ticket';
 import Summary from './Summary';
 
-function Sidebar() {
+function Sidebar({ tickets }) {
   return (
     <div className="sidebar">
-      <Ticket />
-      <Summary />
+      <Ticket tickets={tickets}/>
+      <Summary tickets={tickets}/>
     </div>
   );
 }

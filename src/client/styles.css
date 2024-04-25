@@ -38,7 +38,7 @@ body {
 .summary {
   position: absolute;
   bottom: 5px;
-  left: 5px;
+  left: 10px;
   width: 80%;
   border: none;
   padding: 10px;

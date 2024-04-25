@@ -38,28 +38,12 @@ const itemController = {
     }
   },
 
-  async updateItem(req, res, next) {
-    try {
-      await item.findOneAndUpdate({ 
-        name: req.params.name 
-      }, {
-        name: req.body.name
-      });
-      return next();
-    } catch (err) {
-      return next({
-        log: 'Error in itemController.updateItem: ' + err,
-        status: 500,
-        message: { error: 'Message: ' + err},
-      });
-    }
-  },
-
   async deleteItem(req, res, next) {
     try {
-      await item.findOneAndDelete({
-        name: req.params.name
-      }) 
+      const docs = await item.findOneAndDelete({
+        name: req.body.name
+      });
+      res.locals.doc = docs; 
       return next();
     } catch (error) {
       return next({

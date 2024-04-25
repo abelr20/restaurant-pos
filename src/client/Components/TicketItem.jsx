@@ -6,11 +6,6 @@ function TicketItem({ count, itemName, price }) {
       <span className="item-count">{count} </span>
       <span className="item-name">{itemName} </span>
       <span className="item-price">${price}</span>
-      {/* <ul className="modifiers">
-        {modifiers.map((modifier, index) => (
-          <li key={index}>{modifier}</li>
-        ))}
-      </ul> */}
     </div>
   );
 }
