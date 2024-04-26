@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
-
 import Item from './Item';
 
 function ItemButtons({ items, addToTicket }) {
-  
   return (
     <div className="item-buttons">
       {items.map(item => (
@@ -12,6 +10,5 @@ function ItemButtons({ items, addToTicket }) {
     </div>
   );
 }
-
 
 export default ItemButtons;

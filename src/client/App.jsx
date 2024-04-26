@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 import MainContent from './Components/MainContent';
 import Sidebar from './Components/Sidebar';
 

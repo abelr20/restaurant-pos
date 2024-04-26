@@ -5,13 +5,13 @@ function Summary( { tickets = [] }) {
   let sub = 0;
   let tax = 0;
   let total = 0;
-    
-  
+
   for (let i = 0; i < tickets.length; i++) {
     sub += tickets[i].price;
     tax = sub * 0.08;
     total = sub * 1.08;
   }
+  
   return (
     <div className="summary">
       <div className="subtotal">

@@ -1,10 +1,11 @@
 # Point of Sale Solo Project
 
 ### Identify your users
-Restaurant Waiter/Manager
+- Restaurant Waiters
+- Restaurant Managers
 
 ### What is the problem you’re solving?
-Small restaurants need a simple, fast, functional, low cost, and subscriptionless POS solution that can compete with Micros e7, Square POS, Toast, EPOS, etc.
+Small restaurants need a simple, fast, functional, low cost, and subscriptionless POS solution
 
 ### Solution: Create a Point of Sale (POS) System that is
 1. Low cost, low maintenance

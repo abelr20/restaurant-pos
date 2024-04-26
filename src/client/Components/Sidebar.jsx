@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 import Ticket from './Ticket';
 import Summary from './Summary';
 

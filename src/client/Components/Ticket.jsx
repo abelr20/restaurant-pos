@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 import TicketItem from './TicketItem';
 
 function Ticket({ tickets = [] }) {
