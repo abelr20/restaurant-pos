@@ -1,7 +1,9 @@
 {
   "name": "pos-app",
   "version": "1.0.0",
-  "private": true,
+  "description": "",
+  "main": "index.js",
+  "type": "module",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
@@ -25,8 +27,8 @@
     "webpack-dev-server": "^4.7.4"
   },
   "scripts": {
-    "start": "node src/server/index.js",
-    "dev": "concurrently \"webpack serve --mode development --open\" \"nodemon src/server/index.js\"",
+    "start": "node server/src/server.js",
+    "dev": "webpack serve --config ./client/webpack.config.js --open --mode=development",
     "build": "webpack --mode production"
   },
   "proxy": "http://localhost:3000"

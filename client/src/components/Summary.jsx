@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-function Summary( { tickets = [] }) {
+function Summary({ tickets = [] }) {
   let zero = 0;
   let sub = 0;
   let tax = 0;
@@ -11,24 +11,24 @@ function Summary( { tickets = [] }) {
     tax = sub * 0.08;
     total = sub * 1.08;
   }
-  
+
   return (
-    <div className="summary">
-      <div className="subtotal">
+    <div className='summary'>
+      <div className='subtotal'>
         <span>Sub: </span>
         <span>{sub.toFixed(2)}</span>
       </div>
-      <div className="tax">
+      <div className='tax'>
         <span>Tax: </span>
         <span>{tax.toFixed(2)}</span>
       </div>
-      <div className="total">
+      <div className='total'>
         <span>Total: </span>
         <span>{total.toFixed(2)}</span>
       </div>
-      <div className="actions">
-        <button className="action-button">ADD</button>
-        <button className="remove-button">DEL</button>
+      <div className='actions'>
+        <button className='action-button'>ADD</button>
+        <button className='remove-button'>DEL</button>
       </div>
     </div>
   );
